@@ -1,6 +1,7 @@
 {
   "name": "adonis-gravatar",
   "version": "0.0.1-beta",
+  "license": "MIT",
   "repository": "git+https://github.com/agung96tm/adonis-gravatar.git",
   "description": "Integration gravatar into adonis",
   "author": {
@@ -8,7 +9,6 @@
     "email": "agung.96tm@gmail.com",
     "url": "https://agung96tm.com"
   },
-  "license": "MIT"
   "dependencies": {
     "md5": "^2.3.0"
   },
