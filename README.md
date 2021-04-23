@@ -4,17 +4,19 @@ Adonis Gravatar
 Integration [gravatar](gravatar.com) into [adonis](https://adonisjs.com/).
 
 
+## Getting Started
+
+Install the package using the `adonis` CLI.
+
+```bash
+> adonis install adonis-midtrans
+```
+
+Instruction: ([Click Here](https://github.com/agung96tm/adonis-midtrans/blob/master/instructions.md)).
+
+
 ## Instructions
 
-### Registering provider
-
-The provider is registered inside `start/app.js` file under `providers` array.
-
-```js
-const providers = [
-  'adonis-gravatar/providers/GravatarProvider'
-]
-```
 
 ### Config
 
@@ -26,6 +28,13 @@ module.exports = {
     rating: Env.get('GRAVATAR_RATING', 'r'),
     default: Env.get('GRAVATAR_DEFAULT', 'retro')
 }
+```
+or you can use environment variables `.env` file
+
+```
+GRAVATAR_SIZE=false
+GRAVATAR_RATING=r
+GRAVATAR_DEFAULT=retro
 ```
 
 

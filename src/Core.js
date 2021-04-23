@@ -13,9 +13,10 @@ class Gravatar {
      * @param config is a object, values are same as config in `config/gravatar.js`
      * @return gravatar url
      */
-    generateGravatarUrl(strData, config) {
-        if (config) {
-            this.config = {...this.config, config};
+    generateGravatarUrl(strData, customConfig) {
+        let config = this.config;
+        if (customConfig) {
+            config = {...this.config, customConfig};
         }
 
         let strDataHashed = md5(strData.trim().toLowerCase());
