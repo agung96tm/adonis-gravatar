@@ -1,0 +1,19 @@
+{
+  "name": "adonis-gravatar",
+  "version": "0.0.1-beta",
+  "repository": "git+https://github.com/agung96tm/adonis-gravatar.git",
+  "description": "Integration gravatar into adonis",
+  "author": {
+    "name": "Agung Yuliyanto",
+    "email": "agung.96tm@gmail.com",
+    "url": "https://agung96tm.com"
+  },
+  "license": "MIT"
+  "dependencies": {
+    "md5": "^2.3.0"
+  },
+  "devDependencies": {
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/fold": "^4.0.9"
+  }
+}
