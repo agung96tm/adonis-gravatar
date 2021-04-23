@@ -9,10 +9,10 @@ Integration [gravatar](gravatar.com) into [adonis](https://adonisjs.com/).
 Install the package using the `adonis` CLI.
 
 ```bash
-> adonis install adonis-midtrans
+> adonis install adonis-gravatar
 ```
 
-Instruction: ([Click Here](https://github.com/agung96tm/adonis-midtrans/blob/master/instructions.md)).
+Instruction: ([Click Here](https://github.com/agung96tm/adonis-gravatar/blob/master/instructions.md)).
 
 
 ## Instructions
