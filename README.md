@@ -26,7 +26,7 @@ The config file is saved as `config/gravatar.js`.
 module.exports = {
     size : Env.get('GRAVATAR_SIZE', 100),
     rating: Env.get('GRAVATAR_RATING', 'r'),
-    default: Env.get('GRAVATAR_DEFAULT', 'retro')
+    default: Env.get('GRAVATAR_DEFAULT', 'mp')
 }
 ```
 or you can use environment variables that you can set on `.env` file.
@@ -34,7 +34,7 @@ or you can use environment variables that you can set on `.env` file.
 ```
 GRAVATAR_SIZE=false
 GRAVATAR_RATING=r
-GRAVATAR_DEFAULT=retro
+GRAVATAR_DEFAULT=mp
 ```
 
 ### How To Use
@@ -51,7 +51,10 @@ class AwesomeController {
     const gravatarHtmlImage = Gravatar.generateImage(
         'agung.96tm@gmail.com', 'Current User'
     );
-    // result: `<img src="https://www.gravatar.com/avatar/91f0a80a65760 ... >`
+    const gravatarHtmlImageWithConfig = Gravatar.generateImage(
+        'agung.96tm@gmail.com', 'Current User', { size: 200, default: 'retro' }
+    );
+    // result: `<img src="https://www.gravatar.com/avatar/91f0a80a65760 alt="Current User" ... >`
 
     return gravatarUrl;
   }
@@ -70,11 +73,29 @@ on view:
   </div>
 
   <div>
-    <!-- with {{{ ... }}} instead of {{ ... }} -->
-    {{{ gravatarImage('agung.96tm@gmail.com', 'King Awesome', { width: 100, height: 100 })  }}}
+    <!-- INFO: with {{{ ... }}} instead of {{ ... }} -->
+
+    {{{ gravatarImage('agung.96tm@gmail.com', 'Current User')  }}}
+
+    <!-- with custom config -->
+    {{{ gravatarImage('agung.96tm@gmail.com', 'Current User', { width: 100, height: 100 })  }}}
+    {{{ gravatarImage('agung.96tm@gmail.com', 'Current User', { width: 100, height: 100, default: 'robohash' })  }}}
   </div>
 </body>
 ```
+
+
+## Properties
+
+| Argument      | Description                                                                   | Type                                                                            | Default                          |
+| ------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------- |
+| `size`        | Size of gravatar.                                                             | `number`                                                                        | 100                              |
+| `rating`      | Rating of gravatar.                                                           | `g`, `pg`, `r`, `x`                                                             | r                                |
+| `default`     | gravatar has a number of built in options which you can also use as defaults  | `404`, `mp`, `identicon`, `monsterid`, `wavatar`, `retro`, `robohash`, `blank`  | mp                               |         
+| `width`       | set attribute width for HTML image, used by `gravatarImage` function          | `string`                                                                        | same as size argument            |
+| `height`      | set attribute height for HTML image, used by `gravatarImage` function         | `string`                                                                        | same as size argument            |
+
+
 
 ## Authors
 <table>

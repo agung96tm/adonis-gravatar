@@ -16,7 +16,7 @@ The config file is saved as `config/gravatar.js`.
 module.exports = {
     size : Env.get('GRAVATAR_SIZE', 100),
     rating: Env.get('GRAVATAR_RATING', 'r'),
-    default: Env.get('GRAVATAR_DEFAULT', 'retro')
+    default: Env.get('GRAVATAR_DEFAULT', 'mp')
 }
 ```
 
@@ -25,6 +25,6 @@ or you can use environment variables that you can set on `.env` file.
 ```
 GRAVATAR_SIZE=false
 GRAVATAR_RATING=r
-GRAVATAR_DEFAULT=retro
+GRAVATAR_DEFAULT=mp
 ```
 
