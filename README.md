@@ -29,7 +29,7 @@ module.exports = {
     default: Env.get('GRAVATAR_DEFAULT', 'retro')
 }
 ```
-or you can use environment variables `.env` file
+or you can use environment variables that you can set on `.env` file.
 
 ```
 GRAVATAR_SIZE=false
@@ -37,6 +37,44 @@ GRAVATAR_RATING=r
 GRAVATAR_DEFAULT=retro
 ```
 
+### How To Use
+
+on controller:
+```javascript
+const Gravatar = use('Gravatar');
+
+class AwesomeController {
+  index ({ view }) {
+    const gravatarUrl = Gravatar.generateSrc('agung.96tm@gmail.com');
+    // result: `https://www.gravatar.com/avatar/91f0a80a65760?s=100&r=r&d=retro`
+
+    const gravatarHtmlImage = Gravatar.generateImage(
+        'agung.96tm@gmail.com', 'Current User'
+    );
+    // result: `<img src="https://www.gravatar.com/avatar/91f0a80a65760 ... >`
+
+    return gravatarUrl;
+  }
+}
+```
+
+on view:
+```html
+<body>
+  <h1>Hello World</h1>
+
+  <div>
+      <img 
+        src="{{ gravatarUrl('agung.9tm@gmail.com', { size: 100 })  }}" 
+        alt="Current User">
+  </div>
+
+  <div>
+    <!-- with {{{ ... }}} instead of {{ ... }} -->
+    {{{ gravatarImage('agung.96tm@gmail.com', 'King Awesome', { width: 100, height: 100 })  }}}
+  </div>
+</body>
+```
 
 ## Authors
 <table>

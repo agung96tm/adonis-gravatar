@@ -19,3 +19,12 @@ module.exports = {
     default: Env.get('GRAVATAR_DEFAULT', 'retro')
 }
 ```
+
+or you can use environment variables that you can set on `.env` file.
+
+```
+GRAVATAR_SIZE=false
+GRAVATAR_RATING=r
+GRAVATAR_DEFAULT=retro
+```
+

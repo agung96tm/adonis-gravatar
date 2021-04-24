@@ -18,7 +18,7 @@ class Gravatar {
     generateSrc(email, customConfig) {
         let config = this.config;
         if (customConfig) {
-            config = {...this.config, customConfig};
+            config = {...this.config, ...customConfig};
         }
 
         let emailHashed = md5(email.trim().toLowerCase());
