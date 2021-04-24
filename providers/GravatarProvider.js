@@ -19,8 +19,8 @@ class GravatarProvider extends ServiceProvider {
             View.global('gravatarUrl', (email, customConfig) => {
                 return GravatarApp.generateSrc(email, customConfig);
             });
-            View.global('gravatarImage', (email, customConfig) => {
-                return GravatarApp.generateImage(email, customConfig);
+            View.global('gravatarImage', (email, alt, customConfig) => {
+                return GravatarApp.generateImage(email, alt, customConfig);
             });
         });
     }

@@ -37,7 +37,7 @@ class Gravatar {
         let height = customConfig?.height || this.config.size;
         let src = this.generateSrc(email, customConfig);
 
-        return `<img src=${src} alt=${alt} height=${height} width=${width} />`;
+        return `<img src="${src}" alt="${alt}" height="${height}" width="${width}" />`;
     }
 }
 
