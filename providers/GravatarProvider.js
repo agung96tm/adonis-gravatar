@@ -13,10 +13,16 @@ class GravatarProvider extends ServiceProvider {
     }
 
     boot () {
-        // this.app.with('Adonis/Src/View', (View) => {
-            // const Gravatar = require('../src/ViewBindings/Gravatar');
-            // View.tag(new Gravatar());
-        // });
+        this.app.with('Adonis/Src/View', (View) => {
+            const GravatarApp = this.app.use('Gravatar');
+
+            View.global('gravatarUrl', (email, customConfig) => {
+                return GravatarApp.generateSrc(email, customConfig);
+            });
+            View.global('gravatarImage', (email, customConfig) => {
+                return GravatarApp.generateImage(email, customConfig);
+            });
+        });
     }
 }
 

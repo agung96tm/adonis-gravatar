@@ -1,3 +1,5 @@
+'use strict'
+
 const md5 = require('md5');
 
 class Gravatar {
@@ -9,18 +11,33 @@ class Gravatar {
 
     /**
      * Generate gravatar url
-     * @param strData is a string. If email is not a string, email will be set to empty string "" by default
-     * @param config is a object, values are same as config in `config/gravatar.js`
+     * @param email is a string. If email is not a string, email will be set to empty string "" by default
+     * @param customConfig is a object, values are same as config in `config/gravatar.js`
      * @return gravatar url
      */
-    generateGravatarUrl(strData, customConfig) {
+    generateSrc(email, customConfig) {
         let config = this.config;
         if (customConfig) {
             config = {...this.config, customConfig};
         }
 
-        let strDataHashed = md5(strData.trim().toLowerCase());
-        return `${this.baseUrl}/${strDataHashed}?s=${config.size}&r=${config.rating}&d=${config.default}`
+        let emailHashed = md5(email.trim().toLowerCase());
+        return `${this.baseUrl}/${emailHashed}?s=${config.size}&r=${config.rating}&d=${config.default}`;
+    }
+
+    /**
+     * Generate gravatar image
+     * @param email is a string. If email is not a string, email will be set to empty string "" by default
+     * @param alt is a string.
+     * @param customConfig is a object, values are same as config in `config/gravatar.js`.
+     * @return imageTag gravatar with HTML image code.
+     */
+    generateImage(email, alt, customConfig) {
+        let width =  customConfig?.width || this.config.size;
+        let height = customConfig?.height || this.config.size;
+        let src = this.generateSrc(email, customConfig);
+
+        return `<img src=${src} alt=${alt} height=${height} width=${width} />`;
     }
 }
 
